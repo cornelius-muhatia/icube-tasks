@@ -1,0 +1,35 @@
+.col-left{
+    width: 30%;
+}
+.col-right{
+    width: 80%;
+    /* float: right; */
+    overflow: scroll;
+}
+.page-content{
+    display: flex;
+}
+table#home-world th, table#personal-details th{
+    text-align: left;
+    padding-right: 10px;
+}
+.panel{
+    position: relative;
+    word-wrap: break-word;
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 5px;
+    margin: 5px;
+}
+.panel-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+}
+.panel-header{
+    font-weight: bold;
+    color: rgb(17, 16, 16);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.favorite-panel .checkbox{
+    padding-right: 5px;
+}

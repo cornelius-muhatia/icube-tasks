@@ -1,0 +1,181 @@
+<html>
+
+<head>
+  <title>Star Wars | Details</title>
+  <meta content="">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>Details</h1>
+    </div>
+    <div class="page-content">
+
+      <!-- Left Content -->
+      <div class="col-left">
+        <!-- Personal details view -->
+        <div class="panel">
+          <div class="panel-header">
+            Personal Details
+          </div>
+          <div class="panel-body">
+            <table id="personal-details">
+            </table>
+          </div>
+        </div>
+        <!-- Home world view -->
+        <div class="panel">
+          <div class="panel-header">
+            Home World
+          </div>
+          <div class="panel-body">
+            <table id="home-world">
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-right">
+
+        <!-- Favorites List -->
+        <div class="panel">
+          <div class="panel-header">
+            My Favorites
+          </div>
+          <div class="panel-body">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Gender</th>
+                  <th>Height</th>
+                  <th>Skin Colour</th>
+                </tr>
+              </thead>
+              <tbody id="favorite-content">
+              </tbody>
+            </table>
+            <div id="favorite-panel" class="panel" style="display: none;">
+              <div class="checkbox">
+                <input  type="checkbox" name="favorite"/>
+                <label>Character 1</label>
+              </div>      
+              <div class="checkbox">
+                <input type="checkbox" name="favorite"/>
+                <label>Character 1</label>
+              </div>         
+            </div>
+            <div class="table-buttons">
+              <button id="delete-favorite" onclick="removeFavorite(this)" disabled>Remove</button>
+              <button id="add-favorite" onclick="addFavorite(this)">Add</button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Species View -->
+        <div class="panel">
+          <div class="panel-header">
+            Species
+          </div>
+          <div class="panel-body">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Classification</th>
+                  <th>Designation</th>
+                  <th>Average Lifespan</th>
+                  <th>Average Height</th>
+                  <th>Skin Colour</th>
+                  <th>Language</th>
+                  <th>Creation Date</th>
+                </tr>
+              </thead>
+              <tbody id="species-details"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Films View -->
+        <div class="panel">
+          <div class="panel-header">
+            Films
+          </div>
+          <div class="panel-body">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Director</th>
+                  <th>Producer</th>
+                  <th>Opening plot</th>
+                  <th>Episode</th>
+                  <th>Creation Date</th>
+                </tr>
+              </thead>
+              <tbody id="film-details"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Starships view -->
+        <div class="panel">
+          <div class="panel-header">
+            Starships
+          </div>
+          <div class="panel-body">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Model</th>
+                  <th>Cost (credits)</th>
+                  <th>Cargo Capacity</th>
+                  <th>Starship Class</th>
+                  <th>Creation Date</th>
+                </tr>
+              </thead>
+              <tbody id="starship-details"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Vehicles View -->
+        <div class="panel">
+          <div class="panel-header">
+            Vehicles
+          </div>
+          <div class="panel-body">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Model</th>
+                  <th>Cost (credits)</th>
+                  <th>Cargo Capacity</th>
+                  <th>Vehicle Class</th>
+                  <th>Creation Date</th>
+                </tr>
+              </thead>
+              <tbody id="vehicle-details"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Javascript -->
+  <script src="scripts/main.js" type="text/Javascript"></script>
+  <script src="scripts/details.js" type="text/Javascript"></script>
+</body>
+
+</html>
