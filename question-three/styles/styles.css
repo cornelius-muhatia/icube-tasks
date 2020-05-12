@@ -30,8 +30,12 @@ table#home-world th, table#personal-details th{
     padding: 1.20rem;
     padding-bottom: 0rem;
 }
-.favorite-panel .checkbox{
+#favorite-panel .checkbox{
     padding-right: 5px;
+    padding-bottom: 5px;
+}
+#favorite-panel{
+    flex-wrap: wrap !important;
 }
 table{
     width: 100%;
