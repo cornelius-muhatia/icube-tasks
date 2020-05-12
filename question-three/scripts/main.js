@@ -49,37 +49,42 @@ class HttpService {
             if (this.readyState === XMLHttpRequest.DONE) {
                 let response = new Response();
                 response.status = this.status;
-                try {
-                    if (this.responseText) {
-                        response.content = JSON.parse(this.responseText);
-                    } else {
-                        response.content = {};
+                if (this.status == 200) {
+                    try {
+                        if (this.responseText) {
+                            response.content = JSON.parse(this.responseText);
+                        } else {
+                            response.content = {};
+                        }
+                    } catch (err) {
+                        console.error("Failed parse json text to object", err);
                     }
-                } catch (err) {
-                    console.error("Failed parse json text to object", err);
-                }
+                } 
                 callback(response);
             }
         };
+        client.onerror = function(){
+            alert("Failed to make connection to the server. Please check your internet connection before reloading the page")
+        }
     }
 }
 
 /**
  * Used to manage people storage
  */
-class PeopleRepository{
+class PeopleRepository {
 
     /**
      * Local storage key
      */
     key = "starwars-people";
-    
+
     /**
      * Saves people to the local storage
      * 
      * @param {object} people people details
      */
-    save(people){
+    save(people) {
         console.debug("Saving starwars characters to local storage");
         localStorage.setItem(this.key, JSON.stringify(people));
     }
@@ -89,7 +94,7 @@ class PeopleRepository{
      * 
      * @returns {string} people details
      */
-    findAll(){
+    findAll() {
         console.debug("Retrieving starwars characters from local storage")
         return JSON.parse(localStorage.getItem(this.key));
     }
@@ -98,7 +103,7 @@ class PeopleRepository{
      * Used tho check if a value exists in the saved people list
      * @param {string} val 
      */
-    contains(val){
+    contains(val) {
         console.debug("Checking if " + val + " exists");
         let peopleStr = localStorage.getItem(this.key);
         return peopleStr == null ? false : peopleStr.includes(val);
@@ -108,15 +113,15 @@ class PeopleRepository{
      * Delete person with specified url
      * @param {Array} urls person details url;
      */
-    delete(urls){
+    delete(urls) {
         let people = this.findAll();
-        urls.forEach(function(url, index){
-            for(let i = 0; i < people.length; i++){
-                if(url.includes(people[i]['url'])){
+        urls.forEach(function (url, index) {
+            for (let i = 0; i < people.length; i++) {
+                if (url.includes(people[i]['url'])) {
                     people.splice(i, 1);
                 }
             }
         });
-        this.save(people);  
+        this.save(people);
     }
 }
