@@ -3,7 +3,6 @@
 }
 .col-right{
     width: 80%;
-    /* float: right; */
     overflow: scroll;
 }
 .page-content{
@@ -23,13 +22,27 @@ table#home-world th, table#personal-details th{
 .panel-body{
     flex: 1 1 auto;
     min-height: 1px;
+    padding: 1.20rem;
 }
 .panel-header{
     font-weight: bold;
     color: rgb(17, 16, 16);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 1.20rem;
+    padding-bottom: 0rem;
 }
 .favorite-panel .checkbox{
     padding-right: 5px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    margin-bottom: 1rem;
+    border: 1px solid gray;
+}
+td, th{
+    padding: 0.5rem;
+}
+th{
+    text-align: left;
 }
