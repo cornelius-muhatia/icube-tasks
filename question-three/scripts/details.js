@@ -199,7 +199,7 @@ const BASE_URL = "https://swapi.dev/api";
 /*
 * Http service bean
 */
-let httpService = new HttpService();
+let httpService = new HttpService(document.getElementById("progress-indicator"));
 /**
  * People/character repository
  */

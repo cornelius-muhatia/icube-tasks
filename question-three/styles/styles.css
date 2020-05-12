@@ -46,3 +46,6 @@ td, th{
 th{
     text-align: left;
 }
+#progress-indicator{
+    visibility: hidden;
+}

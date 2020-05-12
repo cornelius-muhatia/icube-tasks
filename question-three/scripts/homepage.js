@@ -1,7 +1,7 @@
 /*
  * Http client service
  */
-let httpService = new HttpService();
+let httpService = new HttpService(document.getElementById("progress-indicator"));
 /**
  * People repository for storing favorite list
  */

@@ -29,10 +29,20 @@ class Response {
 class HttpService {
 
     /**
+     * Maintains count of active requests
+     */
+    loadingSlots = 0;
+    /**
+     * Progress indicator element
+     */
+    loadingElement;
+
+    /**
      * Constructor. Initializes the url
      * 
      */
-    constructor() {
+    constructor(loadingElement) {
+        this.loadingElement = loadingElement;
     }
 
     /**
@@ -42,7 +52,12 @@ class HttpService {
      * @param {function} callback callback function used to pass back the results
      */
     get(url, callback) {
+        this.loadingSlots++;
+        if (this.loadingElement) {
+            this.loadingElement.style.visibility = 'visible';
+        }
         let client = new XMLHttpRequest();
+        let inst = this;
         client.open("GET", url, true);
         client.send();
         client.onreadystatechange = function () {
@@ -59,11 +74,15 @@ class HttpService {
                     } catch (err) {
                         console.error("Failed parse json text to object", err);
                     }
-                } 
+                }
                 callback(response);
+                inst.loadingSlots--;
+                if (inst.loadingElement && inst.loadingSlots < 1) {
+                    inst.loadingElement.style.visibility = 'hidden';
+                }
             }
         };
-        client.onerror = function(){
+        client.onerror = function () {
             alert("Failed to make connection to the server. Please check your internet connection before reloading the page")
         }
     }
@@ -96,7 +115,8 @@ class PeopleRepository {
      */
     findAll() {
         console.debug("Retrieving starwars characters from local storage")
-        return JSON.parse(localStorage.getItem(this.key));
+        let peopleStr = localStorage.getItem(this.key);
+        return peopleStr == null ? [] : JSON.parse(peopleStr);
     }
 
     /**
