@@ -29,7 +29,7 @@ public class Knapsack {
      *
      * @param items Items to be considered
      * @param maxSackWeight Maximum Knapsack weight
-     * @return Maximum item value
+     * @return Knapsack limit
      */
     public static double getMaxWeight(TreeSet<Item> items, double maxSackWeight){
         double totalVal = 0;
@@ -45,5 +45,22 @@ public class Knapsack {
             }
         }
         return totalVal;
+    }
+
+    public static void main(String[] args){
+        double maxSackWeight = 0;
+        TreeSet<Item> items = new TreeSet<>();
+        for(String arg: args){
+            if(arg.contains("--limit")){
+                maxSackWeight = Double.parseDouble(arg.substring(arg.lastIndexOf("=") + 1));
+            } else if(arg.contains("--item")){
+                String[] values = arg.substring(arg.lastIndexOf("=") + 1).split(",");
+                double weight = Double.parseDouble(values[0].trim());
+                double value = Double.parseDouble(values[1].trim());
+                System.out.printf("Parsed weight: %f and value %f \n", weight, value);
+                items.add(new Item(weight, value));
+            }
+        }
+        System.out.println("Knapsack Limit: " + getMaxWeight(items, maxSackWeight));
     }
 }
