@@ -49,9 +49,10 @@ the embedded database at http://localhost:9090/h2-database. Database credentials
 > A live instance of the application can also be found at: [http://34.69.229.194:9090/swagger-ui.html](http://34.69.229.194:9090/swagger-ui.html)
 
 **Note:** 
-> The application runs on port 9090. If you want to use a different port add the following environment variable before running the application: 
+> 1. The application runs on port 9090. If you want to use a different port add the following environment variable before running the application: 
     ```
     export SERVER_PORT=8080
     ```
 replace "8080" with your preferred port. 
+>  1. The database file is stored in Documents folder(iou-test-db.mv.db)
 
