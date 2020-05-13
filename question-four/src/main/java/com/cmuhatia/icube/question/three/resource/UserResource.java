@@ -27,7 +27,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -114,16 +116,18 @@ public class UserResource {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "size", dataType = "int", value = "Page size default is 20"),
             @ApiImplicitParam(name = "page", dataType = "int", value = "Page number default is 0"),
-            @ApiImplicitParam(name = "sort", dataType = "string", value = "Field name e.g status,asc/desc",
-                    paramType = "query", examples = @Example(value = {
-                    @ExampleProperty(value = "'property': 'status,asc/desc'", mediaType = "application/json")}))
+            @ApiImplicitParam(name = "sort", dataType = "string", value = "Field name e.g name,asc/desc")
     })
     @GetMapping("/users")
     public ResponseEntity<UsersList> getUsers(@ApiIgnore Pageable pg){
         log.info("Get user list, filter by {}", pg);
+        if(pg.getSort().isUnsorted()){
+            log.info("Current request is not sorted. Sorting by name");
+            pg = PageRequest.of(pg.getPageNumber(), pg.getPageSize(), Sort.by(Sort.Direction.ASC, "name"));
+        }
         Page<User> userPage = this.userRepo.findAll(pg);
         UsersList userList = new UsersList(userPage.getContent());
-        userList.pageNumber = userPage.getNumber() + 1;
+        userList.pageNumber = userPage.getNumber();
         userList.pageSize = userPage.getSize();
         userList.totalElements = userPage.getNumberOfElements();
         userList.totalPages = userPage.getTotalPages();
