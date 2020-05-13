@@ -10,15 +10,15 @@ Manages IOUs of roommates who have trouble remembering who owes who and how much
 
 ## Build Project
 1. Ensure java 14 is on the system path
-1. For linux systems enable execution for file ./mvnw inside the current (question-four) folder:
+1. For linux systems change "./mvnw" file permission:
     ```shell script
     chmod +x ./mvnw
     ```
-1. Inside current folder(question-four) run the following command:
+1. Inside current folder run the following command:
     ```shell script
     ./mvnw clean install
      ```
-1. For docker image creation run the following command after the previous step:
+1. For docker image creation, run the following command after the previous step:
     ```shell script
     docker build --tag=question-four .
     ```
@@ -28,7 +28,7 @@ Here are a few ways of running the application:
     ```shell script
     ./mvnw spring-boot:run
     ```
-1. Using the jar file: target/question-four-1.0.0.RELEASE.jar. Run the following command:
+1. Using java, run the following command:
     ```shell script
     java -jar target/question-four-1.0.0.RELEASE.jar
     ```
@@ -42,7 +42,7 @@ the embedded database at http://localhost:9090/h2-database. Database credentials
 - Password: test
 - JDBC URL: jdbc:h2:~/Documents/iou-test-db
 
-A live instance of the application can also be found at: [http://34.69.229.194:9090/swagger-ui.html](http://34.69.229.194:9090/swagger-ui.html)
+> A live instance of the application can also be found at: [http://34.69.229.194:9090/swagger-ui.html](http://34.69.229.194:9090/swagger-ui.html)
 
 **Note:** 
 > The application runs on port 9090. If you want to use a different port add the following environment variable before running the application: 
