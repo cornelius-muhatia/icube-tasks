@@ -145,3 +145,17 @@ class PeopleRepository {
         this.save(people);
     }
 }
+
+if (typeof module !== 'undefined') {
+    module.exports = {
+        Response: function (status, content) {
+            return new Response(status, content);
+        },
+        PeopleRepository: function(){
+            return new PeopleRepository();
+        },
+        HttpService: function(loadingElement){
+            return new HttpService(loadingElement);
+        }
+    };
+}
