@@ -15,6 +15,8 @@
  */
 package com.cmuhatia.icube.question.one;
 
+import java.util.Objects;
+
 /**
  * @author Cornelius M.
  * @version 1.0.0, 09/05/2020
@@ -60,8 +62,22 @@ public class Darts {
     }
 
     public static void main(String[] args) {
+        Integer x = null;
+        Integer y = null;
         for(String arg: args){
+            if(arg.contains("x=")){
+                x = Integer.parseInt(arg.substring(arg.lastIndexOf("=") + 1));
+            } else if(arg.contains("y=")){
+                y = Integer.parseInt(arg.substring(arg.lastIndexOf("=") + 1));
+            }
             System.out.println("Processing argument " + arg);
         }
+        if(Objects.isNull(x)){
+            throw new RuntimeException("Expects argument x to passedw. Example x=2");
+        }
+        if(Objects.isNull(y)){
+            throw new RuntimeException("Expects argument y to passed. Example y=2");
+        }
+        System.out.println("Score: " + Darts.score(y, x));
     }
 }
