@@ -34,13 +34,13 @@ Here are a few ways of running the application:
     ```
 1. As for docker run:
     ```shell script
-    docker run question-four 
+    docker run -p 9090:9090 question-four 
     ```
 After running the application the API documentation can be accessed at http://localhost:9090/swagger-ui.html and 
 the embedded database at http://localhost:9090/h2-database. Database credentials:
 - Username: root
 - Password: test
-- URL: jdbc:h2:~/Documents/iou-test-db
+- JDBC URL: jdbc:h2:~/Documents/iou-test-db
 
 A live instance of the application can also be found at: [http://34.69.229.194:9090](http://34.69.229.194/)
 
