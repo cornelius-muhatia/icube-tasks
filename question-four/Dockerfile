@@ -1,4 +1,4 @@
-FROM openjdk:openjdk:14.0.1-oraclelinux7
+FROM openjdk:14.0.1-oraclelinux7
 VOLUME /tmp
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
