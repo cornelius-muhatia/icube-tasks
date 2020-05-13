@@ -22,6 +22,10 @@ Manages IOUs of roommates who have trouble remembering who owes who and how much
     ```shell script
     docker build --tag=question-four .
     ```
+   You can also pull the image from the docker repository
+   ```shell script
+    docker pull jdialogc/public:cmuhatia-icube-question4
+   ```
 ## Running the application
 Here are a few ways of running the application:
 1. Inside current(question-four) project folder run:
