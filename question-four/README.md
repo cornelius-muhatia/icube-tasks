@@ -42,7 +42,7 @@ the embedded database at http://localhost:9090/h2-database. Database credentials
 - Password: test
 - JDBC URL: jdbc:h2:~/Documents/iou-test-db
 
-A live instance of the application can also be found at: [http://34.69.229.194:9090](http://34.69.229.194/)
+A live instance of the application can also be found at: [http://34.69.229.194:9090/swagger-ui.html](http://34.69.229.194:9090/swagger-ui.html)
 
 **Note:** 
 > The application runs on port 9090. If you want to use a different port add the following environment variable before running the application: 
