@@ -5,7 +5,7 @@ Displays Star wars characters from [SWAPI API](https://swapi.dev/documentation).
 1. Javascript
 
 ## Deployment
-1. Maintain the current directory structure open index.html file with browser.
+1. Maintaining the current directory structure open index.html file with a browser.
 1. Also see [Ngnix Deployment](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/)
 
 > Deployed a live application at http://34.69.229.194/
