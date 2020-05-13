@@ -18,11 +18,19 @@ package com.cmuhatia.icube.question.two;
 import java.util.*;
 
 /**
+ *
  * @author Cornelius M.
  * @version 1.0.0, 09/05/2020
  */
 public class Knapsack {
 
+    /**
+     * Calculates the maximum item value a Knapsack can carry.
+     *
+     * @param items Items to be considered
+     * @param maxSackWeight Maximum Knapsack weight
+     * @return Maximum item value
+     */
     public static double getMaxWeight(TreeSet<Item> items, double maxSackWeight){
         double totalVal = 0;
         double totalWeight = 0;
