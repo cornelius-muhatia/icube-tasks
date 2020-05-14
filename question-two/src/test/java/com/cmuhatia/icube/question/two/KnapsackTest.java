@@ -25,5 +25,14 @@ class KnapsackTest {
                                 new Item(6, 30),
                                 new Item(4, 50))),
                         MAX_KNAPSACK_WEIGHT));
+
+        assertEquals(450,
+                Knapsack.getMaxWeight(
+                        new TreeSet<>(Set.of(
+                                new Item(5, 10),
+                                new Item(4, 400),
+                                new Item(6, 30),
+                                new Item(4, 50))),
+                        MAX_KNAPSACK_WEIGHT));
     }
 }
