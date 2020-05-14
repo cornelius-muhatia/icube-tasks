@@ -23,4 +23,5 @@ In the current directory run:
 java -jar target/question-two-1.0.0.RELEASE.jar --limit=10 --item=5,10 --item=4,40 --item=6,30 --item=4,50
 ```
 
-Replace --item values with weight and value respectively with no space between the comma and --limit with knapsack limit.
+> - Replace --item values with weight and value respectively with no space between the comma.
+> - --limit with the knapsacks' limit.
